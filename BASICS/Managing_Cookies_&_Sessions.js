@@ -50,11 +50,11 @@ app.use(
 app.use(passport.initialize());
 
 // 3) Set up passport session (enable persistent login sessions)
-
 app.use(passport.session());
 
 // Passport Local Strategy
 const LocalStrategy = Strategy;
+
 // Note: use passport middleware
 passport.use(
   new LocalStrategy(async function (username, password, cb) {
@@ -124,9 +124,9 @@ app.post(
   passport.authenticate('local', {
     successRedirect: '/secrets',
     failureRedirect: '/login',
-    cookie : {
-      maxAge: 1000 * 60 * 60 * 24
-    }
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+    },
   })
 );
 
